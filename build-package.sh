@@ -11,6 +11,7 @@ apt update
 apt install mariadb-server mariadb-client
 
 mysql_secure_installation
+
 mysql -u root -p
 CREATE DATABASE radius;
 GRANT ALL ON radius.* TO radius@localhost IDENTIFIED BY "Str0ngR@diusPass";
