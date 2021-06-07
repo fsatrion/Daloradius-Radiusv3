@@ -8,11 +8,11 @@ apt install -y software-properties-common
 apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
 add-apt-repository 'deb [arch=amd64,arm64,ppc64el] https://mariadb.mirror.liquidtelecom.com/repo/10.5/ubuntu bionic main'
 apt update
-apt install mariadb-server mariadb-client
+apt install mariadb-server
 
-mysql_secure_installation
+sudo mysql_secure_installation
 
-mysql -u root -p
+sudo mysql -u root -p
 CREATE DATABASE radius;
 GRANT ALL ON radius.* TO radius@localhost IDENTIFIED BY "Str0ngR@diusPass";
 FLUSH PRIVILEGES;
