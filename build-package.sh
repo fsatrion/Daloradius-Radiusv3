@@ -33,7 +33,7 @@ wget https://github.com/lirantal/daloradius/archive/master.zip
 unzip master.zip
 mv daloradius-master daloradius
 cd daloradius
-sudo mysql -u root -p radius < /root/Daloradius-Radiusv3/db/fr3-mysql-daloradius-and-freeradius.sql 
+sudo mysql -u root -p radius < /root/Daloradius-Radiusv3/db/fr3-mysql-daloradius-and-freeradius.sql
 sudo mysql -u root -p radius < contrib/db/mysql-daloradius.sql
 cd -
 mv daloradius /var/www/html/
