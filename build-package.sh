@@ -10,7 +10,7 @@ apt install -y mariadb-server
 
 sudo mysql_secure_installation
 
-mysql -u root -p -e "create database radius; GRANT ALL PRIVILEGES ON radius.* TO radius@localhost IDENTIFIED BY 'Radius@pass'; FLUSH PRIVILEGES"
+mysql -u root -p -e "create database db_name; GRANT ALL PRIVILEGES ON db_name.* TO new_db_user@localhost IDENTIFIED BY 'db_user_pass'; FLUSH PRIVILEGES"
 
 apt -y install freeradius freeradius-mysql freeradius-utils
 mysql -u root -p radius < /etc/freeradius/3.0/mods-config/sql/main/mysql/schema.sql
