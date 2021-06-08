@@ -1,5 +1,5 @@
 # Important !
-Before running the build.sh, you must remember the following information and edit the build.sh on line 13
+Before running the build.sh, you must remember the following information and edit the apt-build.sh on line 13 | yum-build.sh on line31
 ```
 db_name         = radius
 db_user         = radius
@@ -7,10 +7,18 @@ db_user_pass    = Radius@pass
 ```
 
 # Running
+Ubuntu18.04
 ```
 cd Daloradius-Radiusv3
-chmod 777 build-package.sh
-./build-package.sh
+chmod 777 apt-build.sh
+./apt-build.sh
+```
+
+Centos7
+```
+cd Daloradius-Radiusv3
+chmod 777 yum-build.sh
+./yum-build.sh
 ```
 
 # MySql Setup
