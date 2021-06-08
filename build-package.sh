@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e  # exit on the first command failure
-
 apt-get install -y install apache2 php wget unzip libapache2-mod-php php-{gd,common,mail,mail-mime,mysql,pear,db,mbstring,xml,curl}
 
 apt install -y software-properties-common
@@ -12,11 +10,7 @@ apt install mariadb-server
 
 sudo mysql_secure_installation
 
-sudo mysql -u root -p
-CREATE DATABASE radius;
-GRANT ALL ON radius.* TO radius@localhost IDENTIFIED BY "Str0ngR@diusPass";
-FLUSH PRIVILEGES;
-QUIT
+mysql -u base_user -pbase_user_pass -e "create database radius; GRANT ALL PRIVILEGES ON new_db.* TO radius@localhost IDENTIFIED BY 'b4kso3nak'; FLUSH PRIVILEGES; QUIT"
 
 apt -y install freeradius freeradius-mysql freeradius-utils
 mysql -u root -p radius < /etc/freeradius/3.0/mods-config/sql/main/mysql/schema.sq
