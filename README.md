@@ -77,6 +77,7 @@ Thanks for using MariaDB!
 ```
 
 # Freeradius Configuration
+/etc/freeradius/3.0/mods-enabled/sql
 ```
 sql {
 driver = "rlm_sql_mysql"
@@ -101,6 +102,7 @@ client_table = "nas"
 ```
 
 # Daloradius Configuration
+/var/www/html/daloradius/library/daloradius.conf.php
 ```
 $configValues['CONFIG_DB_HOST'] = 'localhost';
 $configValues['CONFIG_DB_PORT'] = '3306';
