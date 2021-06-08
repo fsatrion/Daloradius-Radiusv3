@@ -1,5 +1,4 @@
 #!/bin/bash
-
 apt -y install apache2 unzip wget
 apt -y install php libapache2-mod-php php-{gd,common,mail,mail-mime,mysql,pear,db,mbstring,xml,curl}
 
@@ -11,7 +10,7 @@ apt install -y mariadb-server
 
 sudo mysql_secure_installation
 
-mysql -u root -p -e "create database radius; GRANT ALL PRIVILEGES ON new_db.* TO radius@localhost IDENTIFIED BY 'b4kso3nak'; FLUSH PRIVILEGES"
+mysql -u root -p -e "create database radius; GRANT ALL PRIVILEGES ON radius.* TO radius@localhost IDENTIFIED BY "b4kso3nak"; FLUSH PRIVILEGES"
 
 apt -y install freeradius freeradius-mysql freeradius-utils
 mysql -u root -p radius < /etc/freeradius/3.0/mods-config/sql/main/mysql/schema.sql
@@ -33,10 +32,12 @@ sudo mysql -u root -p radius < contrib/db/mysql-daloradius.sql
 cd -
 mv daloradius /var/www/html/
 
-sudo chown -R www-data:www-data /var/www/html/daloradius/
-sudo chmod 664 /var/www/html/daloradius/library/daloradius.conf.php
-
+cp /var/www/html/daloradius/library/daloradius.conf.php.sample /var/www/html/daloradius/library/daloradius.conf.php
 nano /var/www/html/daloradius/library/daloradius.conf.php
+
+chown -R www-data:www-data /var/www/html/daloradius/
+chmod 664 /var/www/html/daloradius/library/daloradius.conf.php
+
 systemctl restart freeradius.service apache2
 
 cd -
