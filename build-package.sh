@@ -1,13 +1,13 @@
 #!/bin/bash
 
-apt install -y install apache2 php wget libapache2-mod-php php-{gd,common,mail,mail-mime,mysql,pear,db,mbstring,xml,curl}
+apt -y install apache2 unzip wget
+apt -y install php libapache2-mod-php php-{gd,common,mail,mail-mime,mysql,pear,db,mbstring,xml,curl}
 
 apt install -y software-properties-common
 apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
 add-apt-repository 'deb [arch=amd64,arm64,ppc64el] https://mariadb.mirror.liquidtelecom.com/repo/10.5/ubuntu bionic main'
 apt update
 apt install -y mariadb-server
-apt install -y unzip
 
 sudo mysql_secure_installation
 
