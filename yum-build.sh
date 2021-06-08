@@ -20,14 +20,16 @@ name = mariaDB
 baseurl = http://yum.mariadb.org/10.4/centos7-amd64
 gpgkey = https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck = 1
-EOF>>
+EOF
+echo
 
 yum -y install MariaDB-server
 systemctl start mariadb
 systemctl enable --now mariad
 
 mysql _secure_installation
-
+echo
+echo "enter your sql password"
 mysql -u root -p -e "create database db_name; GRANT ALL PRIVILEGES ON db_name.* TO new_db_user@localhost IDENTIFIED BY 'db_user_pass'; FLUSH PRIVILEGES"
 
 yum -y install freeradius freeradius-utils freeradius-mysql
@@ -39,7 +41,8 @@ firewall-cmd –zone=public –permanent –add-port=1812/udp
 firewall-cmd –zone=public –permanent –add-port=1813/udp
 firewall-cmd --add-service={http,https,radius} --permanent
 firewall-cmd --reload
-
+echo
+echo "enter your sql password"
 mysql -u root -p radius < /etc/raddb/mods-config/sql/main/mysql/schema.sql
 ln -s /etc/raddb/mods-available/sql /etc/raddb/mods-enabled/
 
@@ -50,8 +53,11 @@ wget https://github.com/lirantal/daloradius/archive/master.zip
 unzip master.zip
 mv daloradius-master/ daloradius
 cd daloradius
-
+echo
+echo "enter your sql password"
 mysql -u root -p radius < /root/Daloradius-Radiusv3/db/fr3-mysql-daloradius-and-freeradius.sql
+echo
+echo "enter your sql password"
 mysql -u root -p radius < contrib/db/mysql-daloradius.sql
 cd -
 mv daloradius /var/www/html/
