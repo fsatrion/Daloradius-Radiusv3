@@ -1,18 +1,19 @@
-# Important
-Before running the shell script, you must remember the following information and edit the shell script on line 17
+# Important !
+Before running the script, you must remember the following information and edit the shell script on line 13
+```
+db_name         = radius
+db_user         = radius
+db_user_pass    = Radius@pass
+```
 
-database name: radius
-database user: radius
-database user password: Radius@pass
-
-# Running script
+# Running
 ```
 cd Daloradius-Radiusv3
 chmod 777 build.sh
 ./build.sh
 ```
 
-# Database Setup
+# MySql Setup
 ```
 NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
       SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
@@ -75,7 +76,7 @@ installation should now be secure.
 Thanks for using MariaDB!
 ```
 
-#Freeradius Configuration
+# Freeradius Configuration
 ```
 sql {
 driver = "rlm_sql_mysql"
@@ -85,7 +86,7 @@ dialect = "mysql"
 server = "localhost"
 port = 3306
 login = "radius"
-password = "Radius@pass"
+password = "db_user_pass"
 
 # Database table configuration for everything except Oracle
 radius_db = "radius"
@@ -99,11 +100,11 @@ read_clients = yes
 client_table = "nas"
 ```
 
-#Daloradius Configuration
+# Daloradius Configuration
 ```
 $configValues['CONFIG_DB_HOST'] = 'localhost';
 $configValues['CONFIG_DB_PORT'] = '3306';
 $configValues['CONFIG_DB_USER'] = 'radius';
-$configValues['CONFIG_DB_PASS'] = 'Radius@pass';
+$configValues['CONFIG_DB_PASS'] = 'db_user_pass';
 $configValues['CONFIG_DB_NAME'] = 'radius';
 ```
