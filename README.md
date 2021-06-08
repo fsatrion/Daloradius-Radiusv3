@@ -1,5 +1,5 @@
 # Important !
-Before running the build-package.sh, you must remember the following information and edit the build-package.sh on line 13
+Before running the build.sh, you must remember the following information and edit the build.sh on line 13
 ```
 db_name         = radius
 db_user         = radius
