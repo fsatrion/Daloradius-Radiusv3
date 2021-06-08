@@ -38,6 +38,4 @@ nano /var/www/html/daloradius/library/daloradius.conf.php
 chown -R www-data:www-data /var/www/html/daloradius/
 chmod 664 /var/www/html/daloradius/library/daloradius.conf.php
 
-systemctl restart freeradius.service apache2
-
-cd -
+systemctl restart freeradius.service apache2 mariadb
