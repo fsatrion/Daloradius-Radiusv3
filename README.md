@@ -1,5 +1,5 @@
 # Important !
-Before running the script, you must remember the following information and edit the shell script on line 13
+Before running the build-package.sh, you must remember the following information and edit the build-package.sh on line 13
 ```
 db_name         = radius
 db_user         = radius
@@ -9,8 +9,8 @@ db_user_pass    = Radius@pass
 # Running
 ```
 cd Daloradius-Radiusv3
-chmod 777 build.sh
-./build.sh
+chmod 777 build-package.sh
+./build-package.sh
 ```
 
 # MySql Setup
