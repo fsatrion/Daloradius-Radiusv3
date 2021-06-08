@@ -21,9 +21,11 @@ baseurl = http://yum.mariadb.org/10.4/centos7-amd64
 gpgkey = https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck = 1
 EOF
+echo
+
 yum -y install MariaDB-server
-systemctl enable mariadb
 systemctl start mariadb
+systemctl enable --now mariad
 
 mysql _secure_installation
 
@@ -31,6 +33,11 @@ mysql -u root -p -e "create database db_name; GRANT ALL PRIVILEGES ON db_name.* 
 
 yum -y install freeradius freeradius-utils freeradius-mysql
 systemctl enable --now radiusd.service
+
+firewall-cmd –zone=public –add-port=1812/udp
+firewall-cmd –zone=public –add-port=1813/udp
+firewall-cmd –zone=public –permanent –add-port=1812/udp
+firewall-cmd –zone=public –permanent –add-port=1813/udp
 firewall-cmd --add-service={http,https,radius} --permanent
 firewall-cmd --reload
 
