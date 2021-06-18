@@ -10,14 +10,14 @@ db_user_pass    = Radius@pass
 Ubuntu18.04
 ```
 cd Daloradius-Radiusv3
-chmod 777 apt-build.sh
+chmod +x apt-build.sh
 ./apt-build.sh
 ```
 
 Centos7
 ```
 cd Daloradius-Radiusv3
-chmod 777 yum-build.sh
+chmod +x yum-build.sh
 ./yum-build.sh
 ```
 
