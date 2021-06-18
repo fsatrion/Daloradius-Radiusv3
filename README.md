@@ -1,5 +1,5 @@
 # Important !
-Before running the build.sh, you must remember the following information and edit the apt-build.sh on line 13 | yum-build.sh on line 31
+Before running the build.sh, you must remember the following information and edit the apt-build.sh (line 13) | yum-build.sh (line 31)
 ```
 db_name         = radius
 db_user         = radius
